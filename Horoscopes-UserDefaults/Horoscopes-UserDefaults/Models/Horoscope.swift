@@ -13,8 +13,6 @@ struct Horoscope: Codable {
     // MARK: -- Static Properties
     let sunsign: String
     let date: String
-    let horoscope: String
-    let mood: String
-    
+    let horoscope: String    
 
 }
