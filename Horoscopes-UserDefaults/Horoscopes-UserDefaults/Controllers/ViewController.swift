@@ -16,11 +16,22 @@ class ViewController: UIViewController {
         }
     }
     
+    var name: String = "" {
+        didSet {
+            welcomeLabel.text = "Welcome " + self.name + "!"
+        }
+    }
     
+    
+    
+    
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var sunsignLabel: UILabel!
+    @IBOutlet weak var welcomeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameTextField.delegate = self
         
     }
     
@@ -43,3 +54,14 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if let text = textField.text,
+            let textRange = Range(range, in: text) {
+            let updatedText = text.replacingCharacters(in: textRange, with: string)
+            name = updatedText
+        }
+        return true
+    }
+}
