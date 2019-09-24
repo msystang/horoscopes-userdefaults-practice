@@ -9,9 +9,12 @@
 import Foundation
 
 struct User {
+    
+    // MARK: -- Static Properties
     let name: String
     let birthday: Date
     
+    // MARK: -- Computed Properties
     var birthMonthDate: Int {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMdd"

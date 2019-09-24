@@ -9,12 +9,37 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var horoscope: Horoscope? {
+        didSet {
+            sunsignLabel.text = horoscope?.sunsign
+        }
+    }
+    
+    
+    @IBOutlet weak var sunsignLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadHoroscopeData()
     }
 
+    private func loadHoroscopeData() {
+        HoroscopeAPIClient.manager.getHoroscopeFromURL { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let horoscopeFromOnline):
+                    self.horoscope = horoscopeFromOnline
+                }
+            }
+        }
+    }
 
 }
 
