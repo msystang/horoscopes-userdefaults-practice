@@ -16,6 +16,7 @@
 		EAF9E13C233A995E0064113E /* Horoscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF9E13B233A995E0064113E /* Horoscope.swift */; };
 		EAF9E13F233A9C110064113E /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF9E13E233A9C110064113E /* NetworkHelper.swift */; };
 		EAF9E141233A9C3F0064113E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF9E140233A9C3F0064113E /* AppError.swift */; };
+		EAF9E143233A9C7E0064113E /* HoroscopeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF9E142233A9C7E0064113E /* HoroscopeAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		EAF9E13B233A995E0064113E /* Horoscope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Horoscope.swift; sourceTree = "<group>"; };
 		EAF9E13E233A9C110064113E /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		EAF9E140233A9C3F0064113E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		EAF9E142233A9C7E0064113E /* HoroscopeAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			children = (
 				EAF9E13E233A9C110064113E /* NetworkHelper.swift */,
 				EAF9E140233A9C3F0064113E /* AppError.swift */,
+				EAF9E142233A9C7E0064113E /* HoroscopeAPIClient.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			files = (
 				EAF9E11B233A92520064113E /* ViewController.swift in Sources */,
 				EAF9E119233A92520064113E /* AppDelegate.swift in Sources */,
+				EAF9E143233A9C7E0064113E /* HoroscopeAPIClient.swift in Sources */,
 				EAF9E141233A9C3F0064113E /* AppError.swift in Sources */,
 				EAF9E13C233A995E0064113E /* Horoscope.swift in Sources */,
 				EAF9E13F233A9C110064113E /* NetworkHelper.swift in Sources */,
