@@ -32,6 +32,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szo-RY-jbd">
+                                <rect key="frame" x="56" y="70" width="186" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdF-eG-gzA">
                                 <rect key="frame" x="83" y="157" width="65" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -52,19 +59,17 @@
                                 <date key="date" timeIntervalSinceReferenceDate="591048137.80823398">
                                     <!--2019-09-24 20:02:17 +0000-->
                                 </date>
-                                <connections>
-                                    <action selector="pickBirthday:" destination="BYZ-38-t0r" eventType="valueChanged" id="DNp-Sf-SQS"/>
-                                </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Horoscope" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awb-Z0-6Da">
-                                <rect key="frame" x="171" y="601" width="84" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4TM-3N-kBl">
+                                <rect key="frame" x="196" y="387" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szo-RY-jbd">
-                                <rect key="frame" x="56" y="70" width="186" height="21"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="buttonClickedSaveInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="91W-NG-zoI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Horoscope" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awb-Z0-6Da">
+                                <rect key="frame" x="91" y="600" width="188" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -76,6 +81,7 @@
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="imc-GQ-pjo" id="5Cm-V3-CCL"/>
+                        <outlet property="horoscopeLabel" destination="awb-Z0-6Da" id="a93-7k-MHF"/>
                         <outlet property="nameTextField" destination="1Mj-ag-XeB" id="gyx-Ob-mbd"/>
                         <outlet property="sunsignLabel" destination="qqf-XN-bXh" id="lR8-JC-qOw"/>
                         <outlet property="welcomeLabel" destination="szo-RY-jbd" id="Ngu-pt-Ia0"/>

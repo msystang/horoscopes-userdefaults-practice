@@ -28,35 +28,34 @@ struct User {
     var sunsign: String {
         switch birthMonthDate {
             case 0101...0119:
-                return "Capricorn"
+                return "capricorn"
             case 0120...0218 :
-                return "Aquarius"
+                return "aquarius"
             case 0219...0320:
-                return "Pisces"
+                return "pisces"
             case 0321...0419:
-                return "Aries"
+                return "aries"
             case 0420...0520:
-                return "Taurus"
+                return "taurus"
             case 0521...0620:
-                return "Gemini"
+                return "gemini"
             case 0621...0722:
-                return "Cancer"
+                return "cancer"
             case 0723...0822:
-                return "Leo"
+                return "leo"
             case 0823...0922:
-                return "Virgo"
+                return "virgo"
             case 0923...1022:
-                return "Libra"
+                return "libra"
             case 1023...1121:
-                return "Scorpio"
+                return "scorpio"
             case 1122...1221:
-                return "Sagittarius"
+                return "sagittarius"
             case 1222...1231:
-                return "Capricorn"
+                return "capricorn"
             default:
                 return "No horoscope for this birthday!"
         }
     }
-    
 
 }

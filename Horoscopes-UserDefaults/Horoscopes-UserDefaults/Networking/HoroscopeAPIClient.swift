@@ -14,9 +14,9 @@ struct HoroscopeAPIClient {
     static let manager = HoroscopeAPIClient()
     
     // MARK: -- Internal Methods
-    func getHoroscopeFromURL(completionHandler: @escaping (Result<Horoscope, AppError>) -> () ) {
+    func getHoroscopeFromURL(urlStr: String, completionHandler: @escaping (Result<Horoscope, AppError>) -> () ) {
 
-        guard let urlfromStr = URL(string: horoscopeUrlStr) else {
+        guard let urlfromStr = URL(string: urlStr) else {
             completionHandler(.failure(.badURL))
             return
         }
@@ -38,8 +38,6 @@ struct HoroscopeAPIClient {
     }
     
     // MARK: -- Private Properties and Initializers
-    
-    private let horoscopeUrlStr = "http://sandipbgt.com/theastrologer/api/horoscope/virgo/today/"
     
     private init() {}
 }

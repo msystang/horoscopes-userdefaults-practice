@@ -14,13 +14,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var sunsignLabel: UILabel!
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var horoscopeLabel: UILabel!
     
-    
-    var horoscope: Horoscope? {
+    var user: User? {
         didSet {
-            sunsignLabel.text = horoscope?.sunsign
+            loadHoroscopeData()
         }
     }
+    
+    var horoscope: Horoscope?
     
     var name: String = "" {
         didSet {
@@ -34,27 +36,48 @@ class ViewController: UIViewController {
         nameTextField.delegate = self
         configureDatePicker()
         
+        if let storedName = UserDefaults.standard.value(forKey: "name") as? String {
+            name = storedName
+        }
+        if let storedBirthday = UserDefaults.standard.value(forKey: "birthday") as? Date {
+            datePicker.date = storedBirthday
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         loadHoroscopeData()
+        
     }
 
-    @IBAction func pickBirthday(_ sender: UIDatePicker) {
+
+    @IBAction func buttonClickedSaveInfo(_ sender: UIButton) {
+        user = User(name: name, birthday: datePicker.date)
+        UserDefaults.standard.set(user?.name, forKey: "name")
+        UserDefaults.standard.set(user?.birthday, forKey: "birthday")
     }
+    
     
     private func configureDatePicker() {
         datePicker.datePickerMode = .date
     }
     
     private func loadHoroscopeData() {
-        HoroscopeAPIClient.manager.getHoroscopeFromURL { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .success(let horoscopeFromOnline):
-                    self.horoscope = horoscopeFromOnline
+        if let userSign = user?.sunsign {
+            let urlStr = "http://sandipbgt.com/theastrologer/api/horoscope/\( userSign)/today/"
+            print(urlStr)
+            HoroscopeAPIClient.manager.getHoroscopeFromURL(urlStr: urlStr ) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let horoscopeFromOnline):
+                        self.horoscope = horoscopeFromOnline
+                        self.sunsignLabel.text = self.horoscope?.sunsign
+                        self.horoscopeLabel.text = self.horoscope?.horoscope
+                        
+                        
+                    }
                 }
             }
         }
