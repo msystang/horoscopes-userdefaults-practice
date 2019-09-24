@@ -14,6 +14,8 @@
 		EAF9E123233A92540064113E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF9E121233A92540064113E /* LaunchScreen.storyboard */; };
 		EAF9E12E233A92540064113E /* Horoscopes_UserDefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF9E12D233A92540064113E /* Horoscopes_UserDefaultsTests.swift */; };
 		EAF9E13C233A995E0064113E /* Horoscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF9E13B233A995E0064113E /* Horoscope.swift */; };
+		EAF9E13F233A9C110064113E /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF9E13E233A9C110064113E /* NetworkHelper.swift */; };
+		EAF9E141233A9C3F0064113E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF9E140233A9C3F0064113E /* AppError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		EAF9E12D233A92540064113E /* Horoscopes_UserDefaultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Horoscopes_UserDefaultsTests.swift; sourceTree = "<group>"; };
 		EAF9E12F233A92540064113E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAF9E13B233A995E0064113E /* Horoscope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Horoscope.swift; sourceTree = "<group>"; };
+		EAF9E13E233A9C110064113E /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		EAF9E140233A9C3F0064113E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 		EAF9E117233A92520064113E /* Horoscopes-UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
+				EAF9E13D233A9C060064113E /* Networking */,
 				EAF9E13A233A92790064113E /* Models */,
 				EAF9E138233A925E0064113E /* Controllers */,
 				EAF9E139233A92640064113E /* Views */,
@@ -121,6 +126,15 @@
 				EAF9E13B233A995E0064113E /* Horoscope.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EAF9E13D233A9C060064113E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				EAF9E13E233A9C110064113E /* NetworkHelper.swift */,
+				EAF9E140233A9C3F0064113E /* AppError.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,7 +240,9 @@
 			files = (
 				EAF9E11B233A92520064113E /* ViewController.swift in Sources */,
 				EAF9E119233A92520064113E /* AppDelegate.swift in Sources */,
+				EAF9E141233A9C3F0064113E /* AppError.swift in Sources */,
 				EAF9E13C233A995E0064113E /* Horoscope.swift in Sources */,
+				EAF9E13F233A9C110064113E /* NetworkHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
