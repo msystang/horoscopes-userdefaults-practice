@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var sunsignLabel: UILabel!
+    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    
     var horoscope: Horoscope? {
         didSet {
             sunsignLabel.text = horoscope?.sunsign
@@ -23,15 +29,10 @@ class ViewController: UIViewController {
     }
     
     
-    
-    
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var sunsignLabel: UILabel!
-    @IBOutlet weak var welcomeLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self
+        configureDatePicker()
         
     }
     
@@ -39,6 +40,13 @@ class ViewController: UIViewController {
         loadHoroscopeData()
     }
 
+    @IBAction func pickBirthday(_ sender: UIDatePicker) {
+    }
+    
+    private func configureDatePicker() {
+        datePicker.datePickerMode = .date
+    }
+    
     private func loadHoroscopeData() {
         HoroscopeAPIClient.manager.getHoroscopeFromURL { (result) in
             DispatchQueue.main.async {
