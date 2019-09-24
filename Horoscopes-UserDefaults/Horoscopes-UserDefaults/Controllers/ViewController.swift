@@ -41,30 +41,33 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         loadHoroscopeData()
-        if let storedName = UserDefaults.standard.value(forKey: "name") as? String {
+        if let storedName = UserDefaultsWrapper.manager.getName() {
             name = storedName
         }
-        if let storedBirthday = UserDefaults.standard.value(forKey: "birthday") as? Date {
+        if let storedBirthday = UserDefaultsWrapper.manager.getBirthday() {
             datePicker.date = storedBirthday
         }
-        if let storedSunsign = UserDefaults.standard.value(forKey: "sunsign") as? String {
+        if let storedSunsign = UserDefaultsWrapper.manager.getSunsign() {
             sunsignLabel.text = storedSunsign
         }
-        if let storedHoroscope = UserDefaults.standard.value(forKey: "horoscope") as? String {
+        if let storedHoroscope = UserDefaultsWrapper.manager.getHoroscope() {
             horoscopeLabel.text = storedHoroscope
         }
         
     }
 
-
+    //MARK: - IB Actions
     @IBAction func buttonClickedSaveInfo(_ sender: UIButton) {
         user = User(name: name, birthday: datePicker.date)
-        UserDefaults.standard.set(user?.name, forKey: "name")
-        UserDefaults.standard.set(user?.birthday, forKey: "birthday")
-        UserDefaults.standard.set(self.horoscope?.sunsign, forKey: "sunsign")
-        UserDefaults.standard.set(self.horoscope?.horoscope, forKey: "horoscope")
+        if let horoscope = horoscope {
+            UserDefaultsWrapper.manager.store(name: user!.name)
+            UserDefaultsWrapper.manager.store(birthday: datePicker.date)
+            UserDefaultsWrapper.manager.store(sunsign: horoscope.sunsign)
+            UserDefaultsWrapper.manager.store(horoscope: horoscope.horoscope)
+        }
     }
     
+    //MARK: - Private functions
     private func configureTextField() {
         nameTextField.delegate = self
     }
@@ -86,9 +89,6 @@ class ViewController: UIViewController {
                         self.horoscope = horoscopeFromOnline
                         self.sunsignLabel.text = self.horoscope?.sunsign
                         self.horoscopeLabel.text = self.horoscope?.horoscope
-//                        UserDefaults.standard.set(self.horoscope?.sunsign, forKey: "sunsign")
-//                        UserDefaults.standard.set(self.horoscope?.horoscope, forKey: "horoscope")
-                        
                     }
                 }
             }
